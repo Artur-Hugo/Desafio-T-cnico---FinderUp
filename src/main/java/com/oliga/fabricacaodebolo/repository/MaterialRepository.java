@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.oliga.fabricacaodebolo.model.Material;
 
-public interface repositoryMaterial extends JpaRepository<Material, Integer> {
+public interface MaterialRepository extends JpaRepository<Material, Integer> {
 
 }
