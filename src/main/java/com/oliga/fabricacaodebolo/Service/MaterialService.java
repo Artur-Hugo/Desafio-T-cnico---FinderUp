@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.oliga.fabricacaodebolo.model.Material;
 import com.oliga.fabricacaodebolo.model.QtdGastaPorPadeiro;
 import com.oliga.fabricacaodebolo.repository.MaterialRepository;
-import com.oliga.fabricacaodebolo.repository.QtdGastaPorPadRepository;
+import com.oliga.fabricacaodebolo.repository.QtdGastaPadRepository;
 
 import org.springframework.web.server.ResponseStatusException;
 
@@ -18,7 +18,7 @@ public class MaterialService {
 	MaterialRepository repository;
 	
 	@Autowired
-	QtdGastaPorPadRepository qtdrepository;
+	QtdGastaPadRepository qtdrepository;
 	
 
 	///Metodo da requisição put. baixa do material no sistema quando for utilizar na receita

@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.oliga.fabricacaodebolo.Service.MaterialService;
 import com.oliga.fabricacaodebolo.model.Material;
+import com.oliga.fabricacaodebolo.model.QtdGastaPorPadeiro;
 import com.oliga.fabricacaodebolo.repository.MaterialRepository;
+import com.oliga.fabricacaodebolo.repository.QtdGastaPadRepository;
+
 
 
 @RestController
@@ -29,11 +32,14 @@ public class MaterialController {
 	private MaterialRepository repository; 
 	
 	@Autowired
+	private QtdGastaPadRepository qtdRepository;
+	
+	@Autowired
 	private MaterialService service;
 	
 	
 	@PostMapping()
-	public ResponseEntity<Material> postPostagem(@RequestBody Material materiais){
+	public ResponseEntity<Material> postMaterial(@RequestBody Material materiais){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(materiais));	
 	}
 	
@@ -43,12 +49,15 @@ public class MaterialController {
 	}
 	
 	@PutMapping("{id}/request")
-	public ResponseEntity<Material> putCurtirPostagemId (@PathVariable Integer id, @RequestBody Material material ){
+	public ResponseEntity<Material> putDarBaixa (@PathVariable Integer id, @RequestBody Material material ){
 		
 		return ResponseEntity.status(HttpStatus.OK).body(service.darBaixa(id, material));
 	
 	}
 	
-	
+	@GetMapping("/user/{user}")
+	public ResponseEntity<List<QtdGastaPorPadeiro>> getByQtdPadeiro(@PathVariable String user){
+		return ResponseEntity.ok(qtdRepository.findAllByUserContainingIgnoreCase(user));
+	}
 
 }

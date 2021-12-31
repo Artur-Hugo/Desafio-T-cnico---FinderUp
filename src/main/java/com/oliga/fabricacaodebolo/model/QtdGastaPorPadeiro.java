@@ -22,7 +22,7 @@ public class QtdGastaPorPadeiro implements Serializable{
 
 	private String user;
 	
-	
+	public QtdGastaPorPadeiro() {}
 
 	public QtdGastaPorPadeiro(Integer id, String name, int quantity, String user) {
 		super();
