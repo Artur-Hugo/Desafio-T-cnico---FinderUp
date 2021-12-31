@@ -1,11 +1,19 @@
 package com.oliga.fabricacaodebolo.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @Entity
@@ -21,6 +29,12 @@ public class QtdGastaPorPadeiro implements Serializable{
 	private int quantity;
 
 	private String user;
+	
+	@CreationTimestamp
+	@Column( nullable = false, updatable = false)
+	@JsonFormat(pattern="yyyy-MM-dd  HH:mm")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdDate = new java.sql.Date(System.currentTimeMillis());
 	
 	public QtdGastaPorPadeiro() {}
 
@@ -65,6 +79,15 @@ public class QtdGastaPorPadeiro implements Serializable{
 	public void setUser(String user) {
 		this.user = user;
 	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	
 	
 	
 	
