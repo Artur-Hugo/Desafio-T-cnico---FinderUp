@@ -26,6 +26,11 @@ public class MaterialService {
 		
 		Material material = buscarMaterialPeloId(id);
 
+		if((material.getQuantity() - obj.getQuantity()) < 0 ) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Não é possível dar baixa", null);
+
+		}else {
+		
 		material.setName(material.getName());
 		material.setQuantity(material.getQuantity() - obj.getQuantity());
 		material.setUser(material.getUser());
@@ -34,7 +39,7 @@ public class MaterialService {
 		qtdrepository.save(qtdGasta);
 		
 		return repository.save(material);
-		
+		}
 	}
 	
 	
