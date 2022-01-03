@@ -26,7 +26,17 @@ public class Material implements Serializable{
 	@NotNull(message = "O atributo user eh obrigatorio")
 	private String user;
 	
+	public Material() {}
 	
+	public Material(Integer id, @NotNull(message = "O atributo name eh obrigatorio") String name,
+			@NotNull(message = "O atributo quantity eh obrigatorio") int quantity,
+			@NotNull(message = "O atributo user eh obrigatorio") String user) {
+		this.id = id;
+		this.name = name;
+		this.quantity = quantity;
+		this.user = user;
+	}
+
 	//Getters e setters
 	
 	public Integer getId() {
@@ -60,6 +70,8 @@ public class Material implements Serializable{
 	public void setUser(String user) {
 		this.user = user;
 	}
+
+
 	
 	
 }

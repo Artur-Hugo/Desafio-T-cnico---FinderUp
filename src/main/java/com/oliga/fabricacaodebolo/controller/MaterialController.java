@@ -51,8 +51,10 @@ public class MaterialController {
 	@PutMapping("{id}/request")
 	public ResponseEntity<Material> putDarBaixa (@PathVariable Integer id, @RequestBody Material material ){
 		
-		return ResponseEntity.status(HttpStatus.OK).body(service.darBaixa(id, material));
 	
+		return service.darBaixa(id, material)
+		.map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
+		.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
 	}
 	
 	@GetMapping("/user/{user}")

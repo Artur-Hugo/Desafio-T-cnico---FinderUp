@@ -1,5 +1,7 @@
 package com.oliga.fabricacaodebolo.Service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -22,7 +24,7 @@ public class MaterialService {
 	
 
 	///Metodo da requisição put. baixa do material no sistema quando for utilizar na receita
-	public Material darBaixa(Integer id, Material obj) {
+	public Optional<Material> darBaixa(Integer id, Material obj) {
 		
 		Material material = buscarMaterialPeloId(id);
 
@@ -38,7 +40,7 @@ public class MaterialService {
 		QtdGastaPorPadeiro qtdGasta = new QtdGastaPorPadeiro(null, material.getName() , obj.getQuantity(), obj.getUser());
 		qtdrepository.save(qtdGasta);
 		
-		return repository.save(material);
+		return Optional.of(repository.save(material));
 		}
 	}
 	

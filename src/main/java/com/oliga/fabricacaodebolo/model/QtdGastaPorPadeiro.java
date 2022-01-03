@@ -46,7 +46,13 @@ public class QtdGastaPorPadeiro implements Serializable{
 		this.user = user;
 	}
 
-	
+	public QtdGastaPorPadeiro(Integer id, int quantity, String user) {
+		this.id = id;
+		
+		this.quantity = quantity;
+		this.user = user;
+	}
+
 	
 	public Integer getId() {
 		return id;
