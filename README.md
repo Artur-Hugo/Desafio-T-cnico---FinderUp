@@ -37,7 +37,7 @@ API Fabrica de Bolos - é uma API com funcionalidade para a gestão das matéria
 ---
 
 ## ⚙️ Funcionalidades
-
+Baixe o arquivo para ser mais fácil utilizar no Postman -> https://mega.nz/file/62pgBLRL#rcplzH42vWYp_MYg3IpZcHO_-JIapzYmwczQrL4xPUA
 - [x] O estoquista pode cadastrar uma nova matéria prima:
   - [x] Nome da matéria prima.
     - Farinha de trigo
